@@ -28,10 +28,10 @@ void log();
 void log10();
 void atan2();
 void pow();
-void ftoC();
+void fToC();
 void volume();
+void area();
 int main()
-
 {
 	//one integer for loop control and one for function control//
 	int loop_ctrl=0, function_ctrl=0;
@@ -39,10 +39,16 @@ int main()
 	//provides user the choice between switching to normal calculator or the scientific version//
 	while (control == 'y' || control == 'Y') {
 		cout<< "\t\t..MENU..\n\t1.<STANDARD CALCULATOR>\n\t2.<SCIENTIFIC CALCULATOR>" << endl;
-		cin>> loop_ctrl;
+		if (!(cin>> loop_ctrl))
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<< "you have entered a wrong choice";
+				}
+				cout<< "\ncheck complete";
 		if (loop_ctrl != 1 && loop_ctrl != 2)
 		{
-			cout<< "error wrong option entered \n" << "try again ?(y/n)";
+			cout<< "\nerror wrong option entered \n" << "try again ?(y/n)";
 			cin>> control;
 
 		}
@@ -50,7 +56,7 @@ int main()
 		{
 			while (loop_ctrl == 1)
 			{
-				cout<< "enter desired operation using key provided in brackets '()' :\n";
+				cout<< "\nenter desired operation using key provided in brackets '()' :\n";
 
 				cout<< "(1) addition \n";
 
@@ -65,6 +71,7 @@ int main()
 				{
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max() ); 
+					cout<<"\n you have entered wrong choice";
 			
 				}
 
@@ -73,8 +80,8 @@ int main()
 					function_ctrl = 0;
 					cout<< "\n you have entered a wrong choice\n"; break;
 					
-				} 
-				cin>> function_ctrl;
+				}
+				cout<< "\ncheck complete"; 
 				break;
 
 
@@ -89,7 +96,7 @@ int main()
 
 				cout<< "(3) subtraction \n";
 
-				cout<< "(4) division\n<<SCEINTIFIC OPERATIONS>>\n";
+				cout<< "(4) division\n<<<<<<SCEINTIFIC OPERATIONS>>>>>>\n";
 
 				cout<< "(5) remainder\n";
 
@@ -121,11 +128,15 @@ int main()
 
 				cout<< "(19)  common logarithm i.e log10\n";
 
-				cout<< "(20)  atan2\n";
+				cout<< "(20)  arc tangent for 2 numbers \n";
 
-				cout<< "(21)  power\n<<MEASUREMENT OPERATIONS>>\n";
+				cout<< "(21)  power\n<<<<<<MEASUREMENT OPERATIONS>>>>>>\n";
 
-				cout<<"farenheit to celsius conversion";
+				cout<<"(22)farenheit to celsius conversion\n";
+
+				cout<<"(23) Volume of various objects (contains sub menu)\n";
+
+				cout<<"(24) area of various objects (contains sub menu)";
 
 				
 				//avoid infinite loop when a character is entered and corrupts the int cin//
@@ -135,7 +146,7 @@ int main()
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 					cout<< "you have entered a wrong choice";
 				}
-				cout<< "\ncheck complete please valid choice";
+				cout<< "\ncheck complete";
 				break;
 
 			}
@@ -147,148 +158,153 @@ int main()
 		case 1:
 		{
 			sum();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 2:
 		{
 			product();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 3:
 		{
 			sub();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 4:
 
 		{
 			div();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 5:
 
 		{
 			remainder();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 6:
 		{
 			square();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 		case 7:
 		{
 			cube();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 8:
 		{
 			cos();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 9:
 		{
 			sin();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 10:
 		{
 			tan();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 11:
 		{
 			cosh();
-			cout<< "-----exiting------*\n";
+			cout<< "-----exiting------*\n";break;
 		}
 
 		case 12:
 
 		{
 			sinh();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 13:
 		{
 			tanh();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 14:
 		{
 			acos();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 15:
 		{
 			asin();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 16:
 		{
 			atan();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 17:
 		{
 			exp();
-			cout<< "-----exiting------*\n";
+			cout<< "-----exiting------*\n";break;
 		}
 		case 18:
 		{
 			log();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 19:
 		{
 			log10();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 20:
 
 		{
 			atan2();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 
 		case 21:
 		{
 			pow();
-			cout<< "-----exiting------\n";
+			cout<< "-----exiting------\n";break;
 		}
 		case 22:
 		{
-			ftoC();
-			cout<< "-----exiting------\n";
+			fToC();
+			cout<< "-----exiting------\n";break;
 		}
 		case 23:
 		{
 			volume();
-			cout<< "-----exiting------\n";
+			cout<< "\n-----exiting------\n";break;
+		}
+		case 24:
+		{
+			area();
+			cout<< "\n-----exiting------\n";break;
 		}
 	
 		default :
 		{
-			cout<<"wrong choice entered";
+			cout<<"\nwrong choice entered";break;
 		}
 	
 		}
-		cout<< "want to continue? (y/n)";
+		cout<< "\nwant to continue? (y/n)";
 		cin>> control;
 	}
 }
@@ -520,16 +536,17 @@ void pow()
 }
 void fToC()
  {
-	 double fahrenheit,celsius;
-	cout<<"ëneter the temperature in farenheit";
-     celsius = (fahrenheit - 32.0) * 5.0 / 9.0;
+	 double fahrenheit=0,celsius=0;
+	cout<<"enter the temperature in farenheit";
+	cin>>fahrenheit;
+     celsius = (fahrenheit-32.0)* 5.0/9.0;
      cout<<"the temperature in celsius is "<<celsius;
  }
 void volume ()
 {
 	double x1,x2,x3;
 	int ch;
-	cout<<"\n\t\t1>cube\n\t\t2>cuboid\n\t\t3>sphere\n\t\tcylinder";
+	cout<<"\n\t\t1>cube\n\t\t2>cuboid\n\t\t3>sphere\n\t\t4>cylinder";
 	cin>>ch;
 	switch (ch)
 	{
@@ -537,29 +554,67 @@ void volume ()
 		{
 			cout<<"\nenter the side length";
 			cin>>x1;
-			cout<<"\nthe volume is "<<x1*x1*x1;
+			cout<<"\nthe volume is "<<x1*x1*x1;break;
 		}
 		case 2:
 		{
 			cout<<"\nenter the length , heigth and breadth of cuboid ";
 			cin>>x1>>x2>>x3;
-			cout<<"\nthe volume is "<<x1*x2*x3;
+			cout<<"\nthe volume is "<<x1*x2*x3;break;
 		}
 		case 3:
 		{
 			cout<<"\nenter the radius";
 			cin>>x1;
-			cout<<"\nthe volume is "<<x1*(4/3)*x1*x1*PI;
+			cout<<"\nthe volume is "<<x1*(4/3)*x1*x1*PI;break;
 		}
 		case 4:
 		{
 			cout<<"enter the radius and heigth";
 			cin>>x1>>x2;
-			cout<<"\nthe volume is "<<x1*x2*x1*PI;
+			cout<<"\nthe volume is "<<x1*x2*x1*PI;break;
 		}
 		default:
 		{
-			cout<<"wrong choice entered";
+			cout<<"wrong choice entered";break;
+		}
+	}
+}
+void area ()
+{
+	double x1,x2;
+	int ch;
+	cout<<"\n\t\t1>square\n\t\t2>rectangle\n\t\t3>circle\n\t\t4>triangle";
+	cin>>ch;
+	switch (ch)
+	{
+		case 1:
+		{
+			cout<<"\nenter the side length";
+			cin>>x1;
+			cout<<"\nthe area is "<<x1*x1;break;
+		}
+		case 2:
+		{
+			cout<<"\nenter the length and breadth of rectangle ";
+			cin>>x1>>x2;
+			cout<<"\nthe area is "<<x1*x2;break;
+		}
+		case 3:
+		{
+			cout<<"\nenter the radius";
+			cin>>x1;
+			cout<<"\nthe area is "<<x1*x1*PI;break;
+		}
+		case 4:
+		{
+			cout<<"enter the base and heigth";
+			cin>>x1>>x2;
+			cout<<"\nthe area is "<<x1*x2*0.5;break;
+		}
+		default:
+		{
+			cout<<"wrong choice entered";break;
 		}
 	}
 }
