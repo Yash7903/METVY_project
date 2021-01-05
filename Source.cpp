@@ -441,7 +441,7 @@ void log()
 
 void log10()
 
-{cd
+{
 	double a, result;
 	cout << "\nenter the value to take a log \n";
 	cin >> a;
