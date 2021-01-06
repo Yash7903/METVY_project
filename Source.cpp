@@ -31,6 +31,7 @@ void pow();
 void fToC();
 void volume();
 void area();
+void mat_product();
 int main()
 {
 	//one integer for loop control and one for function control//
@@ -130,13 +131,16 @@ int main()
 
 				cout<< "(20)  arc tangent for 2 numbers \n";
 
-				cout<< "(21)  power\n<<<<<<MEASUREMENT OPERATIONS>>>>>>\n";
+				cout<< "(21)  power\n<<<<<<MEASUREMENT AND 2D OPERATIONS>>>>>>\n";
 
 				cout<<"(22)farenheit to celsius conversion\n";
 
 				cout<<"(23) Volume of various objects (contains sub menu)\n";
 
-				cout<<"(24) area of various objects (contains sub menu)";
+				cout<<"(24) area of various objects (contains sub menu)\n";
+
+				cout<<"(25) matrix multiplication\n";
+
 
 				
 				//avoid infinite loop when a character is entered and corrupts the int cin//
@@ -295,6 +299,11 @@ int main()
 		case 24:
 		{
 			area();
+			cout<< "\n-----exiting------\n";break;
+		}
+		case 25:
+		{
+			mat_product();
 			cout<< "\n-----exiting------\n";break;
 		}
 	
@@ -617,4 +626,44 @@ void area ()
 			cout<<"wrong choice entered";break;
 		}
 	}
+}
+void mat_product()
+{
+    int r1, c1, r2, c2, i, j, k;
+    int A[5][5], B[5][5], C[5][5];
+    cout << "Enter number of rows and columns of matrix A : ";
+    cin >> r1 >> c1;
+    cout << "Enter number of rows and columns of matrix B : ";
+    cin >> r2 >> c2; 
+    if (c1 != r2)
+    {
+        cout << "Matrices cannot be multiplied!";
+        exit(0);
+    }	
+    cout << "Enter elements of matrix A : ";
+    for (i = 0; i < r1; i++)
+        for (j = 0; j < c1; j++)
+            cin >> A[i][j];
+    cout << "Enter elements of matrix B : ";
+    for (i = 0; i < r2; i++)
+        for (j = 0; j < c2; j++)
+            cin >> B[i][j];		
+    for (i = 0; i < r1; i++)
+    {
+        for (j = 0; j < c2; j++)
+        {
+            C[i][j] = 0;
+            for (k = 0; k < r2; k++)
+            {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+    cout << "Product of matrices\n";
+    for (i = 0; i < r1; i++)
+    {    
+        for (j = 0; j < c2; j++)
+            cout << C[i][j] << "  ";
+        cout << "\n";
+    }
 }
