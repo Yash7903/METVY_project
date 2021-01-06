@@ -32,6 +32,8 @@ void fToC();
 void volume();
 void area();
 void mat_product();
+void mat_transpose();
+void mat_add();
 int main()
 {
 	//one integer for loop control and one for function control//
@@ -141,8 +143,10 @@ int main()
 
 				cout<<"(25) matrix multiplication\n";
 
+				cout<<"(26) matrix transpose\n";
 
-				
+				cout<<"(27) matrix addition\n";
+
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
 				{
@@ -304,6 +308,16 @@ int main()
 		case 25:
 		{
 			mat_product();
+			cout<< "\n-----exiting------\n";break;
+		}
+			case 26:
+		{
+			mat_transpose();
+			cout<< "\n-----exiting------\n";break;
+		}
+			case 27:
+		{
+			mat_add();
 			cout<< "\n-----exiting------\n";break;
 		}
 	
@@ -631,7 +645,7 @@ void mat_product()
 {
     int r1, c1, r2, c2, i, j, k;
     int A[5][5], B[5][5], C[5][5];
-    cout << "Enter number of rows and columns of matrix A : ";
+    cout << "\nEnter number of rows and columns of matrix A : ";
     cin >> r1 >> c1;
     cout << "Enter number of rows and columns of matrix B : ";
     cin >> r2 >> c2; 
@@ -640,11 +654,11 @@ void mat_product()
         cout << "Matrices cannot be multiplied!";
         exit(0);
     }	
-    cout << "Enter elements of matrix A : ";
+    cout << "Enter elements of matrix A (row-wise) : ";
     for (i = 0; i < r1; i++)
         for (j = 0; j < c1; j++)
             cin >> A[i][j];
-    cout << "Enter elements of matrix B : ";
+    cout << "Enter elements of matrix B (row-wise) : ";
     for (i = 0; i < r2; i++)
         for (j = 0; j < c2; j++)
             cin >> B[i][j];		
@@ -664,6 +678,60 @@ void mat_product()
     {    
         for (j = 0; j < c2; j++)
             cout << C[i][j] << "  ";
+        cout << "\n";
+    }
+}
+void mat_transpose()
+{
+    int A[10][10], m, n, i, j;
+    cout << "\nEnter rows and columns of matrix : ";
+    cin >> m >> n;
+    cout << "Enter elements of matrix (row-wise) : ";
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            cin >> A[i][j];
+    cout << "Entered Matrix : \n ";
+    for (i = 0; i < m; i++)
+    { 
+        for (j = 0; j < n; j++)
+            cout << A[i][j] << " ";
+        cout << "\n ";
+    }
+    cout << "Transpose of Matrix : \n ";
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < m; j++)
+            cout << A[j][i] << " ";
+        cout << "\n ";
+    }
+}
+void mat_add()
+{
+    int m, n, p, q, i, j, A[5][5], B[5][5], C[5][5];
+    cout << "\nEnter rows and column of matrix A : ";
+    cin >> m >> n;
+    cout << "Enter rows and column of matrix B : ";
+    cin >> p >> q; 
+    if ((m != p) && (n != q))
+    {
+        cout << "Matrices cannot be added!";
+        exit(0);
+    }	
+    cout << "Enter elements of matrix A (row-wise) : ";
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            cin >> A[i][j];
+	cout << "Enter elements of matrix B (row-wise) : ";
+    for (i = 0; i < p; i++)
+        for (j = 0; j < q; j++)
+            cin >> B[i][j];		
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            C[i][j] = A[i][j] + B[i][j];
+    cout << "Sum of matrices\n";
+    for (i = 0; i < m; i++)
+    {    for (j = 0; j < n; j++)
+            cout << C[i][j] << "  ";	
         cout << "\n";
     }
 }
