@@ -49,7 +49,7 @@ int main()
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 					cout<< "you have entered a wrong choice";
 				}
-				cout<< "\ncheck complete";
+				cout<< "\ncheck complete\n";
 		if (loop_ctrl != 1 && loop_ctrl != 2)
 		{
 			cout<< "\nerror wrong option entered \n" << "try again ?(y/n)";
