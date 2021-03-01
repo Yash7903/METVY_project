@@ -1,4 +1,4 @@
-/*yash
+/*yash kumar
 */
 #include<iostream>
 #include<stdlib.h>
