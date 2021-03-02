@@ -34,6 +34,8 @@ void area();
 void mat_product();
 void mat_transpose();
 void mat_add();
+void compoundInterest();
+void simpleInterest();
     calculation operator+(calculation &ob)
     {
         calculation temp;
@@ -86,8 +88,8 @@ void calculation :: remainder()
 	cin>> a;
 	cout<< "\n Enter the second number\n";
 	cin>> b;
-	remainder = a * b;
-	cout<< "remainder is" << remainder << endl;
+	remainder = a % b;
+	cout<< "Remainder is " << remainder << endl;
 }
 
 void calculation :: square()
@@ -97,7 +99,7 @@ void calculation :: square()
 	cout<< "\n Enter the number\n";
 	cin>> a;
 	square = a * a;
-	cout<< "square is" << square<< endl;
+	cout<< "Square is " << square<< endl;
 }
 
 void calculation :: cube()
@@ -107,7 +109,7 @@ void calculation :: cube()
 	cout<< "\n Enter the number\n";
 	cin>> a;
 	cube = a * a * a;
-	cout<< "cube is" << cube<< endl;
+	cout<< " Cube is " << cube<< endl;
 }
 
 void calculation :: cosQ()
@@ -117,7 +119,7 @@ void calculation :: cosQ()
 	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = cos(a * PI / 180);
-	cout<< "the cosine of " << a << " is " << result << endl;
+	cout<< "The cosine of " << a << " is " << result << endl;
 }
 
 void calculation :: sinQ()
@@ -137,7 +139,7 @@ void calculation :: tanQ()
 	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = tan(a * PI / 180);
-	cout<< "the tan of the " << a << " is " << result << endl;
+	cout<< "The tan of the " << a << " is " << result << endl;
 }
 
 void calculation :: coshQ()
@@ -147,7 +149,7 @@ void calculation :: coshQ()
 	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = cosh(a);
-	cout<< "the hyperbolic cosine of " << a << " is " << result << endl;
+	cout<< "The hyperbolic cosine of " << a << " is " << result << endl;
 }
 
 void calculation :: sinhQ()
@@ -157,7 +159,7 @@ void calculation :: sinhQ()
 	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = sinh(a);
-	cout<< "the hyperbolic sine of " << a << " is " << result << endl;
+	cout<< "The hyperbolic sine of " << a << " is " << result << endl;
 }
 
 void calculation :: tanhQ()
@@ -252,22 +254,22 @@ void calculation :: powQ()
 	cout<< "\n Enter the power\n";
 	cin>> b;
 	power = pow(a, b);
-	cout<< "\n" << a << " raise to power " << b << " is " << power;
+	cout<< "\n" << a << " Raise to power " << b << " is " << power;
 
 }
 void calculation :: fToC()
  {
 	 double fahrenheit=0,celsius=0;
-	cout<<" Enter the temperature in fahrenheit";
+	cout<<" Enter the temperature in fahrenheit : ";
 	cin>>fahrenheit;
      celsius = (fahrenheit-32.0)* 5.0/9.0;
-     cout<<"the temperature in celsius is "<<celsius;
+     cout<<"The temperature in celsius is "<<celsius;
  }
 void calculation :: volume ()
 {
 	double x1,x2,x3;
 	int ch;
-	cout<<"\n\t\t1>cube\n\t\t2>cuboid\n\t\t3>sphere\n\t\t4>cylinder";
+	cout<<"\n\t 1> Cube\n\t 2> Cuboid\n\t 3> Sphere\n\t 4> Cylinder";
 	cin>>ch;
 	switch (ch)
 	{
@@ -291,13 +293,13 @@ void calculation :: volume ()
 		}
 		case 4:
 		{
-			cout<<"\nEnter the radius and height";
+			cout<<"\nEnter the radius and height : ";
 			cin>>x1>>x2;
 			cout<<"\n The volume is "<<x1*x2*x1*PI;break;
 		}
 		default:
 		{
-			cout<<"wrong choice entered";break;
+			cout<<"Wrong choice entered";break;
 		}
 	}
 }
@@ -305,7 +307,8 @@ void calculation :: area ()
 {
 	double x1,x2;
 	int ch;
-	cout<<"\n\t\t1>square\n\t\t2>rectangle\n\t\t3>circle\n\t\t4>triangle";
+	cout<<"\n\t 1> Square \n\t 2> Rectangle\n\t 3> Circle\n\t 4> Triangle"<<endl;
+	cout<<"Option : ";
 	cin>>ch;
 	switch (ch)
 	{
@@ -433,6 +436,42 @@ void calculation :: mat_add()
         cout << "\n";
     }
 }
+void calculation ::compoundInterest()
+{
+    float p,r,t,ci;
+
+    cout<<"Enter Principle (Amount) :: ";
+    cin>>p;
+    cout<<"\nEnter Rate of Interest per annum :: ";
+    cin>>r;
+    cout<<"\nEnter Time Period in years :: ";
+    cin>>t;
+
+    ci = p*pow((1+r/100),t);
+
+    cout<<"\nThe Calculated Compound Interest is = "<<ci<<"\n";
+
+}
+void calculation :: simpleInterest()
+{
+    float p,r,t,si,a;
+
+    cout<<"Enter Principle (Amount) :: ";
+    cin>>p;
+    cout<<"\nEnter Rate of Interest per annum :: ";
+    cin>>r;
+    cout<<"\nEnter Time Period in years :: ";
+    cin>>t;
+
+    si=p*r*t/100;
+
+    a=p+si;
+
+    cout<<"\nThe Calculated Simple Interest is = "<<si<<"\n";
+
+    cout<<"\nThe Total Amount after including Interest value = "<<a<<"\n";
+
+}
 
 
 int main()
@@ -443,7 +482,7 @@ int main()
 	char control='y';
 	//provides user the choice between switching to normal calculator or the scientific version//
 	while (control == 'y' || control == 'Y') {
-		cout<< "\t\t..MENU..\n\t1.<STANDARD CALCULATOR>\n\t2.<SCIENTIFIC CALCULATOR>" << endl;
+		cout<< "\t\t..MENU..\n\t1.<STANDARD CALCULATOR>\n\t2.<ALL FUNCTIONS>" << endl;
 		if (!(cin>> loop_ctrl))
 				{
 					cin.clear();
@@ -486,7 +525,7 @@ int main()
 					cout<< "\n you have entered a wrong choice\n"; break;
 
 				}
-				cout<< "\n check complete";
+				cout<< "\n check complete\n";
 				break;
 
 
@@ -549,6 +588,12 @@ int main()
 
 				cout<< "(27) Matrix addition\n";
 
+				cout<< "(28) Compound Interest\n";
+
+				cout<< "(29) Simple Interest\n";
+
+				cout<<"\n\tOption : ";
+
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
 				{
@@ -556,7 +601,7 @@ int main()
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 					cout<< "you have entered a wrong choice";
 				}
-				cout<< "\n check complete";
+				cout<< "\n check complete\n";
 				break;
 
 			}
@@ -590,7 +635,7 @@ int main()
 
         ans=t*w;
         cout<<ans;
-         cout<<" is multiplication of two number.";
+         cout<<" is multiplication of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
@@ -602,7 +647,7 @@ int main()
 
         ans=t-w;
         cout<<ans;
-        cout<<" is Subtraction of two number.";
+        cout<<" is Subtraction of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
@@ -615,7 +660,7 @@ int main()
 
         ans=t/w;
         cout<<ans;
-        cout<<" is division of two number.";
+        cout<<" is division of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
@@ -752,6 +797,16 @@ int main()
 			c.mat_add();
 			cout<< "\n-----exiting------\n";break;
 		}
+			case 28:
+		{
+			c.compoundInterest();
+			cout<< "\n-----exiting------\n";break;
+		}
+			case 29:
+		{
+			c.simpleInterest();
+			cout<< "\n-----exiting------\n";break;
+		}
 
 		default :
 		{
@@ -763,4 +818,3 @@ int main()
 		cin>> control;
 	}
 }
-
