@@ -1,5 +1,3 @@
-/*sreehari is topper
-*/
 #include<iostream>
 #include<stdlib.h>
 #include<limits>
@@ -11,9 +9,11 @@ class calculation
 private:
 float x;
 public:
-void remainder();
-void square();
-void cube();
+    calculation()
+    {
+
+    }
+
 void cosQ();
 void sinQ();
 void tanQ();
@@ -80,38 +80,40 @@ ostream & operator<<(ostream &out, calculation &b)
 
     return out;
 }
-void calculation :: remainder()
-
+class B
 {
-	int a, b, remainder;
-	cout<< "\n Enter the first number\n";
-	cin>> a;
-	cout<< "\n Enter the second number\n";
-	cin>> b;
-	remainder = a % b;
-	cout<< "Remainder is " << remainder << endl;
-}
+private:
+    int y;
+public:
+ B()
+ {
 
-void calculation :: square()
-
+ }
+   B operator%(B &ob)
+    {
+        B temp;
+        temp.y=y%ob.y;
+        return temp;
+    }
+    friend istream & operator>>(istream &, B &);
+    friend ostream & operator<<(ostream &,  B &);
+};
+istream & operator>>(istream &in, B &a)
 {
-	int a, square;
-	cout<< "\n Enter the number\n";
-	cin>> a;
-	square = a * a;
-	cout<< "Square is " << square<< endl;
+
+    cout<<"\n Enter the DATA : ";
+    in>>a.y;
+
+    return in;
 }
-
-void calculation :: cube()
-
+ostream & operator<<(ostream &out, B &b)
 {
-	int a, cube;
-	cout<< "\n Enter the number\n";
-	cin>> a;
-	cube = a * a * a;
-	cout<< " Cube is " << cube<< endl;
-}
+    int z;
+    cout<<endl<<"\t\t";
+    out<<z;
 
+    return out;
+}
 void calculation :: cosQ()
 
 {
@@ -655,7 +657,7 @@ int main()
 		case 4:
 
 		{
-			calculation t,w,ans;
+        calculation t,w,ans;
         cin>>t>>w;
 
         ans=t/w;
@@ -668,18 +670,36 @@ int main()
 		case 5:
 
 		{
-			c.remainder();
+        B t,w,ans;
+        cin>>t>>w;
+
+        ans=t%w;
+        cout<<ans;
+        cout<<" is reminder of two numbers.";
+        cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 6:
 		{
-			c.square();
+        calculation t,w,ans;
+        cin>>t;
+
+        ans=t*t;
+        cout<<ans;
+        cout<<" is the square";
+        cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 		case 7:
 		{
-			c.cube();
+        calculation t,w,ans;
+        cin>>t;
+
+        ans=t*t*t;
+        cout<<ans;
+        cout<<" is the cube";
+        cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 
