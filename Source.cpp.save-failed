@@ -4,87 +4,16 @@
 #include<math.h>
 #define PI 3.141
 using namespace std;
-class Arithmetic{
-private:
-    float x;
-public:
-
-Arithmetic operator+(Arithmetic &ob)
-    {
-        Arithmetic temp;
-        temp.x=x+ob.x;
-        return temp;
-    }
-    Arithmetic operator*(Arithmetic &ob)
-    {
-        Arithmetic temp;
-        temp.x=x*ob.x;
-        return temp;
-    }
-    Arithmetic operator/(Arithmetic &ob)
-    {
-        Arithmetic temp;
-        temp.x=x/ob.x;
-        return temp;
-    }
-    Arithmetic operator-(Arithmetic &ob)
-    {
-        Arithmetic temp;
-        temp.x=x-ob.x;
-        return temp;
-    }
-    friend istream & operator>>(istream &, Arithmetic &);
-    friend ostream & operator<<(ostream &, Arithmetic &);
-};
-istream & operator>>(istream &in, Arithmetic &a)
-{
-
-    cout<<"\n Enter the DATA : ";
-    in>>a.x;
-
-    return in;
-}
-ostream & operator<<(ostream &out, Arithmetic &b)
-{
-    float y;
-    cout<<endl<<"\t\t";
-    out<<y;
-
-    return out;
-}
-class Mod
+class calculation
 {
 private:
-    int y;
+float x;
 public:
-   Mod operator%(Mod &ob)
+    calculation()
     {
-       Mod temp;
-        temp.y=y%ob.y;
-        return temp;
+
     }
-    friend istream & operator>>(istream &, Mod &);
-    friend ostream & operator<<(ostream &,  Mod &);
-};
-istream & operator>>(istream &in, Mod &a)
-{
 
-    cout<<"\n Enter the DATA : ";
-    in>>a.y;
-
-    return in;
-}
-ostream & operator<<(ostream &out, Mod &b)
-{
-    int z;
-    cout<<endl<<"\t\t";
-    out<<z;
-
-    return out;
-}
-class Trigonometric
-{
-public:
 void cosQ();
 void sinQ();
 void tanQ();
@@ -94,175 +23,275 @@ void tanhQ();
 void acosQ();
 void asinQ();
 void atanQ();
-void atan2Q();
-};
-class Measurement
-{
-public :
-
 void expQ();
 void logQ();
 void log10Q();
+void atan2Q();
 void powQ();
 void fToC();
 void volume();
 void area();
-void compoundInterest();
-void simpleInterest();
-};
-class Matrix_Calculation
-{
-public:
 void mat_product();
 void mat_transpose();
 void mat_add();
+void compoundInterest();
+void simpleInterest();
+    calculation operator+(calculation &ob)
+    {
+        calculation temp;
+        temp.x=x+ob.x;
+        return temp;
+    }
+    calculation operator*(calculation &ob)
+    {
+        calculation temp;
+        temp.x=x*ob.x;
+        return temp;
+    }
+    calculation operator/(calculation &ob)
+    {
+        calculation temp;
+        temp.x=x/ob.x;
+        return temp;
+    }
+    calculation operator-(calculation &ob)
+    {
+        calculation temp;
+        temp.x=x-ob.x;
+        return temp;
+    }
+    friend istream & operator>>(istream &, calculation &);
+    friend ostream & operator<<(ostream &, calculation &);
+
 };
-void Trigonometric :: cosQ()
+istream & operator>>(istream &in, calculation &a)
+{
+
+    cout<<"\n Enter the DATA : ";
+    in>>a.x;
+
+    return in;
+}
+ostream & operator<<(ostream &out, calculation &b)
+{
+    float y;
+    cout<<endl<<"\t\t";
+    out<<y;
+
+    return out;
+}
+class B
+{
+private:
+    int y;
+public:
+ B()
+ {
+
+ }
+   B operator%(B &ob)
+    {
+        B temp;
+        temp.y=y%ob.y;
+        return temp;
+    }
+    friend istream & operator>>(istream &, B &);
+    friend ostream & operator<<(ostream &,  B &);
+};
+istream & operator>>(istream &in, B &a)
+{
+
+    cout<<"\n Enter the DATA : ";
+    in>>a.y;
+
+    return in;
+}
+ostream & operator<<(ostream &out, B &b)
+{
+    int z;
+    cout<<endl<<"\t\t";
+    out<<z;
+
+    return out;
+}
+class Arithmetic{
+private:
+float x;
+public:
+
+calculation operator+(calculation &ob)
+    {
+        calculation temp;
+        temp.x=x+ob.x;
+        return temp;
+    }
+    calculation operator*(calculation &ob)
+    {
+        calculation temp;
+        temp.x=x*ob.x;
+        return temp;
+    }
+    calculation operator/(calculation &ob)
+    {
+        calculation temp;
+        temp.x=x/ob.x;
+        return temp;
+    }
+    calculation operator-(calculation &ob)
+    {
+        calculation temp;
+        temp.x=x-ob.x;
+        return temp;
+    }
+    friend istream & operator>>(istream &, calculation &);
+    friend ostream & operator<<(ostream &, calculation &);
+};
+void calculation :: cosQ()
 
 {
 	double a, result ;
-	cout<< "\n Enter the angle : ";
+	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = cos(a * PI / 180);
 	cout<< "The cosine of " << a << " is " << result << endl;
 }
 
-void Trigonometric :: sinQ()
+void calculation :: sinQ()
 
 {
 	double a, result ;
-	cout<< "\n Enter the angle : ";
+	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = sin(a * PI / 180);
 	cout<< "the sine of " << a << " is " << result << endl;
 }
 
-void Trigonometric :: tanQ()
+void calculation :: tanQ()
 
 {
 	double a, result ;
-	cout<< "\n Enter the angle : ";
+	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = tan(a * PI / 180);
 	cout<< "The tan of the " << a << " is " << result << endl;
 }
 
-void Trigonometric :: coshQ()
+void calculation :: coshQ()
 
 {
 	double a, result ;
-	cout<< "\n Enter the angle : ";
+	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = cosh(a);
 	cout<< "The hyperbolic cosine of " << a << " is " << result << endl;
 }
 
-void Trigonometric :: sinhQ()
+void calculation :: sinhQ()
 
 {
 	double a, result ;
-	cout<< "\n Enter the angle : ";
+	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = sinh(a);
 	cout<< "The hyperbolic sine of " << a << " is " << result << endl;
 }
 
-void Trigonometric :: tanhQ()
+void calculation :: tanhQ()
 
 {
 
 	double a, result ;
-	cout<< "\n Enter the angle : ";
+	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = tanh(a);
 	cout<< "The hyperbolic tangent of " << a << " is " << result << endl;
 }
 
-void Trigonometric :: acosQ()
+void calculation :: acosQ()
 
 {
 	double a, result ;
-	cout<< "\n Enter the angle : ";
+	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = acos(a) * 180.0 / PI;
 	cout<< "The arc cosine of " << a << " is " << result << endl;
 }
 
-void Trigonometric :: asinQ()
+void calculation :: asinQ()
 
 {
 	double a, result ;
-	cout<< "\n Enter the angle : ";
+	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = asin(a) * 180.0 / PI;
 	cout<< "The arc sine of " << a << " is " << result << endl;
 }
 
-void Trigonometric :: atanQ()
+void calculation :: atanQ()
 
 {
 	double a, result ;
-	cout<< "\n Enter the angle : ";
+	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = tanh(a);
 	cout<< "The arc tangential of " << a << " is " << result << endl;
 }
 
-void Measurement :: expQ()
+void calculation :: expQ()
 
 {
 	double a, result;
-	cout<< "\n Enter the number : ";
+	cout<< "\n Enter the number\n";
 	cin>> a;
 	result = exp(a);
 	cout<< "The exponential value of " << a << " is = " << result << endl;
 }
 
-void Measurement :: logQ()
+void calculation :: logQ()
 
 {
 	double a, result;
-	cout<< "\n Enter the value to take a log : ";
+	cout<< "\n Enter the value to take a log \n";
 	cin>> a;
 	result = log(a);
 	cout<< "The logarithm of " << a << " is " << result << endl;
 }
 
-void Measurement :: log10Q()
+void calculation :: log10Q()
 
 {
 	double a, result;
-	cout<< "\n Enter the value to take a log : ";
+	cout<< "\n Enter the value to take a log \n";
 	cin>> a;
 	result = log10(a);
 	cout<< "The common logarithm of " << a << " is " << result << endl;
 }
 
-void Trigonometric :: atan2Q()
+void calculation :: atan2Q()
 
 {
 	double a, b, result ;
-	cout<< "\n Enter the first number : ";
+	cout<< "\n Enter the first number\n";
 	cin>> a;
-	cout<< "\n Enter second the number : ";
+	cout<< "\n Enter second the number\n";
 	cin>> b;
 	result = atan2(a, b) * 180 / PI;
 	cout<< "The arc tangent for " << a << " and " << b << " is " << result << endl;
 
 }
 
-void Measurement :: powQ()
+void calculation :: powQ()
 {
 	int a, b, power;
-	cout<< "\n Enter the number : ";
+	cout<< "\n Enter the number\n";
 	cin>> a;
-	cout<< "\n Enter the power : ";
+	cout<< "\n Enter the power\n";
 	cin>> b;
 	power = pow(a, b);
 	cout<< "\n" << a << " Raise to power " << b << " is " << power;
 
 }
-void Measurement :: fToC()
+void calculation :: fToC()
  {
 	 double fahrenheit=0,celsius=0;
 	cout<<" Enter the temperature in fahrenheit : ";
@@ -270,7 +299,7 @@ void Measurement :: fToC()
      celsius = (fahrenheit-32.0)* 5.0/9.0;
      cout<<"The temperature in celsius is "<<celsius;
  }
-void Measurement :: volume ()
+void calculation :: volume ()
 {
 	double x1,x2,x3;
 	int ch;
@@ -280,19 +309,19 @@ void Measurement :: volume ()
 	{
 		case 1:
 		{
-			cout<<"\n Enter the side length : ";
+			cout<<"\n Enter the side length";
 			cin>>x1;
 			cout<<"\n The volume is "<<x1*x1*x1;break;
 		}
 		case 2:
 		{
-			cout<<"\n Enter the length , height and breadth of cuboid : ";
+			cout<<"\n Enter the length , height and breadth of cuboid ";
 			cin>>x1>>x2>>x3;
 			cout<<"\n The volume is "<<x1*x2*x3;break;
 		}
 		case 3:
 		{
-			cout<<"\n Enter the radius : ";
+			cout<<"\n Enter the radius";
 			cin>>x1;
 			cout<<"\n The volume is "<<x1*(4/3)*x1*x1*PI;break;
 		}
@@ -308,7 +337,7 @@ void Measurement :: volume ()
 		}
 	}
 }
-void Measurement :: area ()
+void calculation :: area ()
 {
 	double x1,x2;
 	int ch;
@@ -319,35 +348,35 @@ void Measurement :: area ()
 	{
 		case 1:
 		{
-			cout<<"\n Enter the side length : ";
+			cout<<"\n Enter the side length";
 			cin>>x1;
 			cout<<"\n The area is "<<x1*x1;break;
 		}
 		case 2:
 		{
-			cout<<"\n Enter the length and breadth of rectangle : ";
+			cout<<"\n Enter the length and breadth of rectangle ";
 			cin>>x1>>x2;
 			cout<<"\n The area is "<<x1*x2;break;
 		}
 		case 3:
 		{
-			cout<<"\n Enter the radius : ";
+			cout<<"\n Enter the radius";
 			cin>>x1;
 			cout<<"\n The area is "<<x1*x1*PI;break;
 		}
 		case 4:
 		{
-			cout<<"\n Enter the base and height : ";
+			cout<<"\n Enter the base and height";
 			cin>>x1>>x2;
 			cout<<"\n The area is "<<x1*x2*0.5;break;
 		}
 		default:
 		{
-			cout<<"Wrong choice entered";break;
+			cout<<"wrong choice entered";break;
 		}
 	}
 }
-void Matrix_Calculation :: mat_product()
+void calculation :: mat_product()
 {
     int r1, c1, r2, c2, i, j, k;
     int A[5][5], B[5][5], C[5][5];
@@ -387,7 +416,7 @@ void Matrix_Calculation :: mat_product()
         cout << "\n";
     }
 }
-void Matrix_Calculation :: mat_transpose()
+void calculation :: mat_transpose()
 {
     int A[10][10], m, n, i, j;
     cout << "\nEnter rows and columns of matrix : ";
@@ -411,7 +440,7 @@ void Matrix_Calculation :: mat_transpose()
         cout << "\n ";
     }
 }
-void Matrix_Calculation :: mat_add()
+void calculation :: mat_add()
 {
     int m, n, p, q, i, j, A[5][5], B[5][5], C[5][5];
     cout << "\nEnter rows and column of matrix A : ";
@@ -441,7 +470,7 @@ void Matrix_Calculation :: mat_add()
         cout << "\n";
     }
 }
-void Measurement ::compoundInterest()
+void calculation ::compoundInterest()
 {
     float p,r,t,ci;
 
@@ -457,7 +486,7 @@ void Measurement ::compoundInterest()
     cout<<"\nThe Calculated Compound Interest is = "<<ci<<"\n";
 
 }
-void Measurement :: simpleInterest()
+void calculation :: simpleInterest()
 {
     float p,r,t,si,a;
 
@@ -482,9 +511,7 @@ void Measurement :: simpleInterest()
 int main()
 {
 	//one integer for loop control and one for function control//
-	Trigonometric tri;
-	Measurement mea;
-	Matrix_Calculation mat;
+	calculation c;
 	int loop_ctrl=0, function_ctrl=0;
 	char control='y';
 	//provides user the choice between switching to normal calculator or the scientific version//
@@ -675,7 +702,7 @@ int main()
 		case 5:
 
 		{
-        Mod t,w,ans;
+        B t,w,ans;
         cin>>t>>w;
 
         ans=t%w;
@@ -687,7 +714,7 @@ int main()
 
 		case 6:
 		{
-        Arithmetic t,w,ans;
+        calculation t,w,ans;
         cin>>t;
 
         ans=t*t;
@@ -698,7 +725,7 @@ int main()
 		}
 		case 7:
 		{
-        Arithmetic t,w,ans;
+        calculation t,w,ans;
         cin>>t;
 
         ans=t*t*t;
@@ -710,126 +737,126 @@ int main()
 
 		case 8:
 		{
-			tri.cosQ();
+			c.cosQ();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 9:
 		{
-			tri.sinQ();
+			c.sinQ();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 10:
 		{
-			tri.tanQ();
+			c.tanQ();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 11:
 		{
-			tri.coshQ();
+			c.coshQ();
 			cout<< "-----exiting------*\n";break;
 		}
 
 		case 12:
 
 		{
-			tri.sinhQ();
+			c.sinhQ();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 13:
 		{
-			tri.tanhQ();
+			c.tanhQ();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 14:
 		{
-			tri.acosQ();
+			c.acosQ();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 15:
 		{
-			tri.asinQ();
+			c.asinQ();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 16:
 		{
-			tri.atanQ();
+			c.atanQ();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 17:
 		{
-			mea.expQ();
+			c.expQ();
 			cout<< "-----exiting------*\n";break;
 		}
 		case 18:
 		{
-			mea.logQ();
+			c.logQ();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 19:
 		{
-			mea.log10Q();
+			c.log10Q();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 20:
 
 		{
-			tri.atan2Q();
+			c.atan2Q();
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 21:
 		{
-			mea.powQ();
+			c.powQ();
 			cout<< "-----exiting------\n";break;
 		}
 		case 22:
 		{
-			mea.fToC();
+			c.fToC();
 			cout<< "-----exiting------\n";break;
 		}
 		case 23:
 		{
-			mea.volume();
+			c.volume();
 			cout<< "\n-----exiting------\n";break;
 		}
 		case 24:
 		{
-			mea.area();
+			c.area();
 			cout<< "\n-----exiting------\n";break;
 		}
 		case 25:
 		{
-			mat.mat_product();
+			c.mat_product();
 			cout<< "\n-----exiting------\n";break;
 		}
 			case 26:
 		{
-			mat.mat_transpose();
+			c.mat_transpose();
 			cout<< "\n-----exiting------\n";break;
 		}
 			case 27:
 		{
-			mat.mat_add();
+			c.mat_add();
 			cout<< "\n-----exiting------\n";break;
 		}
 			case 28:
 		{
-			mea.compoundInterest();
+			c.compoundInterest();
 			cout<< "\n-----exiting------\n";break;
 		}
 			case 29:
 		{
-			mea.simpleInterest();
+			c.simpleInterest();
 			cout<< "\n-----exiting------\n";break;
 		}
 
